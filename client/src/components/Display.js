@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./Display.css";
+
 const Display = ({contract,account}) => {
 const[data,setData]=useState("")
     const getdata=async()=>{
@@ -13,12 +13,13 @@ if(otheraddress){
 }
     else{
         dataArray=await contract.display(account);
+        console.log(dataArray);
     }
 }
 catch(e){
     alert("you have not access");
 }
-    const isEmpty= Object.keys(dataArray).length===0;
+    const isEmpty= Object.keys(dataArray).length === 0;
     if(!isEmpty){
         const str= dataArray.toString();
 
@@ -26,7 +27,7 @@ catch(e){
     
     const image= str_array.map((item,i)=>{
         return(
-            <a href={item} key={i} target="_blank">
+            <a href={item} key={i} >
                 <img key={i} src={`https://gateway.pinata.cloud/ipfs/${item.substring(6)}`}
                 alt="new"
                 className="image_list"></img>
@@ -43,8 +44,8 @@ catch(e){
     return (<>
         <div className="image-list">{data}</div>
         <input type="text" placeholder="Enter Address" className="address"></input>
-        <button className="center button" onClick={getdata}></button>
+        <button className="center button" onClick={getdata}>Get Data</button>
     </>
-    )
+    );
 };
 export default Display;

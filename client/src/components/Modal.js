@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import"./Modal.css";
+
 
 const Modal = ({setModal, contract}) => {
 
@@ -22,7 +22,7 @@ useEffect(()=>{
 
           }
 
-     }
+     };
      contract && accessList();
 },[contract]);
 
