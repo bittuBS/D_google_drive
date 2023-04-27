@@ -1,5 +1,5 @@
  import Upload from "./artifacts/contracts/Upload.sol/upload.json";
-import './App.css';
+import"./App.css";
 import { ethers } from "ethers";
 import {useState, useEffect} from "react";
 import FileUpload from "./components/FileUpload";
@@ -43,14 +43,33 @@ setProvider(provider);
 
 return (
 <>
-{!modalOpen&&(<button className="share" onClick={()=>setModal(true)}>share</button>)}
- {modalOpen &&(<Modal setModal={setModal} contract={contract}></Modal>)}
-<div className="App">
-<h1 style={{color:"black"}}>Gdrive 3.0</h1> 
-<p style={{color:"black"}}>Account: {account ? account: "not connected"}</p>
-<FileUpload account={account} provider={provider} contract={contract}></FileUpload>
-<Display  contract={contract} account={account}></Display>
-</div>
+<>
+      {!modalOpen && (
+        <button className="share" onClick={() => setModal(true)}>
+          Share
+        </button>
+      )}
+      {modalOpen && (
+        <Modal setModalOpen={setModal} contract={contract}></Modal>
+      )}
+
+      <div className="App">
+        <h1 style={{ color: "white" }}>Gdrive 3.0</h1>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+
+        <p style={{ color: "white" }}>
+          Account : {account ? account : "Not connected"}
+        </p>
+        <FileUpload
+          account={account}
+          provider={provider}
+          contract={contract}
+        ></FileUpload>
+        <Display contract={contract} account={account}></Display>
+      </div>
+    </>
 </>
 );
 }

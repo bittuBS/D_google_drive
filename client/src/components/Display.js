@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import "./Display.css";
 
 const Display = ({contract,account}) => {
-const[data,setData]=useState("")
-    const getdata=async()=>{
+const[data,setData]=useState("null")
+    const getdata = async()=>{
 let dataArray;
 const otheraddress= document.querySelector(".address").value;
 try{
@@ -16,14 +16,19 @@ if(otheraddress){
         console.log(dataArray);
     }
 }
+
 catch(e){
     alert("you have not access");
+    console.log("you have not access");
+    
 }
     const isEmpty= Object.keys(dataArray).length === 0;
     if(!isEmpty){
         const str= dataArray.toString();
 
         const str_array=str.split(",");
+        console.log(str);
+        console.log(str_array);
     
     const image= str_array.map((item,i)=>{
         return(

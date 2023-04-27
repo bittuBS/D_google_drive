@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "./FileUpload.css";
 
 
 const FileUpload = ({account, contract, provider}) => {
@@ -16,8 +17,8 @@ const resFile= await axios({
    url:"https://api.pinata.cloud/pinning/pinFileToIPFS",
    data: formData,
    headers: {
-    pinata_api_key:`adc592d912abcc875d45`,
-    pinata_secret_api_key:`b81cfa40f74d5afe00eb1c17c334d691e92a48723a48ab07504380f8f2736c4b`,
+    pinata_api_key:`cb4cedad3b7186b2b2a7`,
+    pinata_secret_api_key:`c55cb8797c136cc72e377e19c345aed57216c2bc949b1b600c2fe5dfbf2dfffd`,
     "Content-Type":"multipart/form-data",
 
    } ,
